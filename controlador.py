@@ -1,7 +1,6 @@
 from modelo import Pelicula
 from vista import Vista
 
-
 class Controlador:
     def __init__(self):
         self.__modelo = Pelicula()
