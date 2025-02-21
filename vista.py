@@ -21,6 +21,9 @@ class Vista(QMainWindow):
 
         self.__cargar_peliculas(peliculas)
 
+        self.__ui.boton_buscar_pelicula.setCheckable(True)
+        self.__ui.boton_abrir_ventana_actores.setCheckable(True)
+
     def __cargar_peliculas(self, peliculas):
         self.__peliculas = []
 
@@ -41,7 +44,7 @@ class Vista(QMainWindow):
                 self.__ui.table_peliculas.setItem(fila, 0, QTableWidgetItem(pelicula["titulo"]))
 
     def __abrir_ventana_actores(self):
-        print("Abriendo ventana películas por actores")
+        print("Ejecutando ventana de búsqueda por actores")
         ventana_actor = VentanaActor(self.__peliculas)
         ventana_actor.exec()
 
@@ -57,7 +60,7 @@ class Vista(QMainWindow):
             if pelicula["titulo"] == titulo:
                 return pelicula
 
-    # Aquí emitimos la señal para abrir la ventana de actores
+    # Emitir señal para ventana de actores #
     def emitir_signal_abrir_ventana_actores(self):
         self.__abrir_ventana_actores()
 
