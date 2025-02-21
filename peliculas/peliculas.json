@@ -45,7 +45,7 @@
         "poster": "el_infiltrado.png",
         "titulo": "El Infiltrado",
         "sinopsis": "Un oficial de la policía se infiltra en una organización criminal para desmantelarla desde adentro.",
-        "actores": ["Brad Pitt", "Robert De Niro"],
+        "actores": ["Dwayne Johnson", "Susan Sarandon", "Jon Bernthal", "Michael Kenneth", "Barry Pepper"],
         "puntuacion": 8.5
     },
     {
@@ -73,7 +73,7 @@
         "poster": "infiltrados.png",
         "titulo": "Los Infiltrados",
         "sinopsis": "Un policía encubierto y un topo en la policía de Massachusetts intentan descubrir la identidad del otro.",
-        "actores": ["Leonardo DiCaprio", "Matt Damon"],
+        "actores": ["Leonardo DiCaprio", "Matt Damon", "Jack Nicholson", "Mark Wahlberg"],
         "puntuacion": 8.5
     }
 ]
