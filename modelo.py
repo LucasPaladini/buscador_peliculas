@@ -10,5 +10,6 @@ class Pelicula:
             with open(ruta_archivo, 'r', encoding='utf-8') as archivo:
                 return json.load(archivo)
 
-        except Exception as e:
-            print(f"Ocurrió un error: {e}")
+        except Exception as error:
+            print(f"Ocurrió un error: {error}")
+
