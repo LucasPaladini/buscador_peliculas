@@ -105,7 +105,7 @@
    <sender>boton_abrir_ventana_actores</sender>
    <signal>clicked()</signal>
    <receiver>Ventana_principal</receiver>
-   <slot>_Vista__abrir_ventana_actores()</slot>
+   <slot>_VentanaPrincipal__abrir_ventana_actores()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>312</x>
@@ -121,7 +121,7 @@
    <sender>boton_buscar_pelicula</sender>
    <signal>clicked()</signal>
    <receiver>Ventana_principal</receiver>
-   <slot>_Vista__buscar_peliculas()</slot>
+   <slot>_VentanaPrincipal__buscar_peliculas()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>253</x>
@@ -135,7 +135,7 @@
   </connection>
  </connections>
  <slots>
-  <slot>_Vista__abrir_ventana_actores()</slot>
-  <slot>_Vista__buscar_peliculas()</slot>
+  <slot>_VentanaPrincipal__abrir_ventana_actores()</slot>
+  <slot>_VentanaPrincipal__buscar_peliculas()</slot>
  </slots>
 </ui>
