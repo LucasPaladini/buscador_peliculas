@@ -5,9 +5,10 @@ from ui.ventana_principal import Ui_Ventana_principal
 from ui.busqueda_actores import Ui_dialog_actor
 from ui.datos_pelicula import Ui_Dialog
 
-class Vista(QMainWindow):
+class VentanaPrincipal(QMainWindow):
     def __init__(self, peliculas):  # Paso parámetro de peliculas
-        super().__init__()  # Se utiliza para poder exteneder funcionalidades de la clase padre
+        # print(peliculas)
+        super().__init__()  # Se utiliza para poder extender funcionalidades de la clase padre
         self.__ui = Ui_Ventana_principal()  # Crea una instancia de la main
         self.__ui.setupUi(self)     # Configura los botones e interfaz
         self.setWindowTitle("Ventana principal")
@@ -192,6 +193,7 @@ class VentanaPelicula(QDialog):
 
     def __cargar_poster(self, archivo):
         ruta = os.path.join("peliculas", "imagen", archivo)
+        # print(ruta)
         pixmap = QPixmap(ruta)
 
         if pixmap:
