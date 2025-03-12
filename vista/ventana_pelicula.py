@@ -19,7 +19,6 @@ class VentanaPelicula(QDialog):
 
     def __cargar_poster(self, archivo):
         ruta = os.path.join("peliculas", "imagen", archivo)
-        # print(ruta)
         pixmap = QPixmap(ruta)
 
         if pixmap:
