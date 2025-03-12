@@ -14,45 +14,18 @@
    <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="2" column="1">
-    <widget class="QPushButton" name="boton_buscar_actor_1">
+   <item row="0" column="0" colspan="2" alignment="Qt::AlignmentFlag::AlignHCenter">
+    <widget class="QLabel" name="label">
      <property name="text">
-      <string>Buscar</string>
+      <string>Búsqueda por actores:</string>
      </property>
     </widget>
    </item>
-   <item row="8" column="0" colspan="2">
-    <widget class="QLabel" name="label_texto">
+   <item row="8" column="0">
+    <widget class="QLineEdit" name="actor_n1">
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Trabajaron en:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string/>
      </property>
-    </widget>
-   </item>
-   <item row="3" column="0">
-    <widget class="QLineEdit" name="line_ingreso_actor_2">
-     <property name="alignment">
-      <set>Qt::AlignmentFlag::AlignCenter</set>
-     </property>
-     <property name="placeholderText">
-      <string>Actor N2</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="1">
-    <widget class="QPushButton" name="boton_buscar_actor_2">
-     <property name="text">
-      <string>Buscar</string>
-     </property>
-    </widget>
-   </item>
-   <item row="7" column="0" colspan="2">
-    <widget class="QTableWidget" name="table_actores"/>
-   </item>
-   <item row="9" column="0" colspan="2">
-    <widget class="QTableWidget" name="table_peliculas_actores"/>
-   </item>
-   <item row="2" column="0">
-    <widget class="QLineEdit" name="line_ingreso_actor_1">
      <property name="alignment">
       <set>Qt::AlignmentFlag::AlignCenter</set>
      </property>
@@ -61,6 +34,9 @@
      </property>
     </widget>
    </item>
+   <item row="7" column="0" colspan="2">
+    <widget class="QTableWidget" name="table_actores"/>
+   </item>
    <item row="6" column="0" colspan="2" alignment="Qt::AlignmentFlag::AlignHCenter">
     <widget class="QLabel" name="label_2">
      <property name="text">
@@ -68,17 +44,50 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="0" colspan="2" alignment="Qt::AlignmentFlag::AlignHCenter">
-    <widget class="QLabel" name="label">
+   <item row="3" column="1">
+    <widget class="QPushButton" name="boton_buscar_actor">
      <property name="text">
-      <string>Búsqueda por actores:</string>
+      <string>Buscar</string>
      </property>
     </widget>
    </item>
-   <item row="5" column="0" colspan="2">
+   <item row="14" column="0" colspan="2">
+    <widget class="QLabel" name="label_texto">
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Trabajaron en:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="1">
     <widget class="QPushButton" name="boton_buscar_pelicula_por_actores">
      <property name="text">
       <string>Buscar peliculas</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLineEdit" name="line_ingreso_actor">
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+     <property name="placeholderText">
+      <string>Buscar actor</string>
+     </property>
+    </widget>
+   </item>
+   <item row="15" column="0" colspan="2">
+    <widget class="QTableWidget" name="table_peliculas_actores"/>
+   </item>
+   <item row="9" column="0">
+    <widget class="QLineEdit" name="actor_n2">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+     <property name="placeholderText">
+      <string>Actor N2</string>
      </property>
     </widget>
    </item>
@@ -87,26 +96,10 @@
  <resources/>
  <connections>
   <connection>
-   <sender>boton_buscar_actor_2</sender>
+   <sender>boton_buscar_actor</sender>
    <signal>clicked()</signal>
    <receiver>dialog_actor</receiver>
-   <slot>_VentanaActor__buscar_actor_2()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>237</x>
-     <y>71</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>203</x>
-     <y>59</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>boton_buscar_actor_1</sender>
-   <signal>clicked()</signal>
-   <receiver>dialog_actor</receiver>
-   <slot>_VentanaActor__buscar_actor_1()</slot>
+   <slot>_VentanaActor__buscar_actor()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>266</x>
@@ -125,8 +118,8 @@
    <slot>_VentanaActor__buscar_pelicula_por_actores()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>185</x>
-     <y>101</y>
+     <x>279</x>
+     <y>226</y>
     </hint>
     <hint type="destinationlabel">
      <x>250</x>
@@ -136,8 +129,7 @@
   </connection>
  </connections>
  <slots>
-  <slot>_VentanaActor__buscar_actor_2()</slot>
-  <slot>_VentanaActor__buscar_actor_1()</slot>
+  <slot>_VentanaActor__buscar_actor()</slot>
   <slot>_VentanaActor__buscar_pelicula_por_actores()</slot>
  </slots>
 </ui>
