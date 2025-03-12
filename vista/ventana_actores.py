@@ -15,34 +15,20 @@ class VentanaActor(QDialog):
 
         self.__ui.table_peliculas_actores.setRowCount(0)
         self.__ui.table_peliculas_actores.setColumnCount(1)
-        self.__ui.table_peliculas_actores.setHorizontalHeaderLabels(["Películas"])
+        self.__ui.table_peliculas_actores.setHorizontalHeaderLabels([""])
         self.__ui.table_peliculas_actores.verticalHeader().setVisible(False)
         self.__ui.table_peliculas_actores.horizontalHeader().setStretchLastSection(True)
 
         self.__ui.table_actores.setRowCount(0)
         self.__ui.table_actores.setColumnCount(1)
-        self.__ui.table_actores.setHorizontalHeaderLabels(["Actores"])
+        self.__ui.table_actores.setHorizontalHeaderLabels([""])
         self.__ui.table_actores.verticalHeader().setVisible(False)
         self.__ui.table_actores.horizontalHeader().setStretchLastSection(True)
 
         self.cargar_actores()
 
-    def __buscar_actor_1(self):
-        texto_busqueda = self.__ui.line_ingreso_actor_1.text().strip().lower()
-        self.__ui.table_actores.setRowCount(0)
-
-        for pelicula in self.__peliculas:
-            for actor in pelicula["actores"]:
-                if texto_busqueda in actor.lower():
-                    fila = self.__ui.table_actores.rowCount()
-                    self.__ui.table_actores.insertRow(fila)
-                    self.__ui.table_actores.setItem(fila, 0, QTableWidgetItem(actor))
-
-        if self.__ui.table_actores.rowCount() == 0:
-            QMessageBox.warning(self, "Error", "No se encontró actor con ese nombre.")
-
-    def __buscar_actor_2(self):
-        texto_busqueda = self.__ui.line_ingreso_actor_2.text().strip().lower()
+    def __buscar_actor(self):
+        texto_busqueda = self.__ui.line_ingreso_actor.text().strip().lower()
         self.__ui.table_actores.setRowCount(0)
 
         for pelicula in self.__peliculas:
@@ -69,8 +55,8 @@ class VentanaActor(QDialog):
             self.__ui.table_actores.setItem(fila, 0, QTableWidgetItem(actor))
 
     def __obtener_nombres_actores(self):
-        actor_1 = self.__ui.line_ingreso_actor_1.text().strip()
-        actor_2 = self.__ui.line_ingreso_actor_2.text().strip()
+        actor_1 = self.__ui.actor_n1.text().strip()
+        actor_2 = self.__ui.actor_n2.text().strip()
         return actor_1, actor_2
 
     def __buscar_pelicula_por_actores(self):
