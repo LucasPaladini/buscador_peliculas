@@ -1,7 +1,8 @@
-from PySide6.QtWidgets import QMainWindow, QTableWidgetItem
+from PySide6.QtWidgets import QMainWindow, QTableWidgetItem, QMessageBox
 from ui.ventana_principal import Ui_Ventana_principal
 from vista.ventana_actores import VentanaActor
 from vista.ventana_pelicula import VentanaPelicula
+
 
 class VentanaPrincipal(QMainWindow):
     def __init__(self, peliculas):  # Paso parámetro de peliculas
@@ -38,11 +39,18 @@ class VentanaPrincipal(QMainWindow):
         texto_busqueda = self.__ui.line_ingreso_nombre.text().lower()
         self.__ui.table_peliculas.setRowCount(0)
 
+        if texto_busqueda == "":
+            QMessageBox.warning(self, "Error", "Ingrese una pelicula")
+            return
+
         for pelicula in self.__peliculas:
             if texto_busqueda in pelicula["titulo"].lower():
                 fila = self.__ui.table_peliculas.rowCount()
                 self.__ui.table_peliculas.insertRow(fila)
                 self.__ui.table_peliculas.setItem(fila, 0, QTableWidgetItem(pelicula["titulo"]))
+        if self.__ui.table_peliculas.rowCount() == 0:
+            QMessageBox.warning(self, "Error", "No se encontró la película")
+
 
     def __cargar_peliculas_en_tabla(self, item):
         titulo = item.text()
