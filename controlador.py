@@ -1,5 +1,5 @@
 from modelo import Pelicula
-from ventanaprincipal import VentanaPrincipal
+from vista.ventana_principal import VentanaPrincipal
 
 class Controlador:
     def __init__(self):
