@@ -11,21 +11,20 @@ class VentanaPrincipal(QMainWindow):
         self.__ui.setupUi(self)     # Configura los botones e interfaz
         self.setWindowTitle("Ventana principal")
 
-        self.__ui.table_peliculas.setRowCount(0)    # Coloca filas al principio
+        self.__ui.table_peliculas.setRowCount(0)
         self.__ui.table_peliculas.setColumnCount(1)  # Cantidad de columnas
-        self.__ui.table_peliculas.setHorizontalHeaderLabels(["Películas"])  # Diga el titulo sobre la tabla
-        self.__ui.table_peliculas.verticalHeader().setVisible(False)      # Ocultar numeros de las filas
-        self.__ui.table_peliculas.horizontalHeader().setStretchLastSection(True)    # Las filas ocupan la totalidad
+        self.__ui.table_peliculas.setHorizontalHeaderLabels(["Películas"])
+        self.__ui.table_peliculas.verticalHeader().setVisible(False)
+        self.__ui.table_peliculas.horizontalHeader().setStretchLastSection(True)
         self.__ui.table_peliculas.itemDoubleClicked.connect(self.__cargar_peliculas_en_tabla)
         self.__ui.boton_buscar_pelicula.setCheckable(True)
         self.__ui.boton_abrir_ventana_actores.setCheckable(True)
 
-        self.__cargar_peliculas(peliculas)  # Ejecuta ese método enviandole como parámetro las peliculas
+        self.__cargar_peliculas(peliculas)
 
 
     def __cargar_peliculas(self, peliculas):
         self.__peliculas = []
-        # print(peliculas)
 
         for pelicula in peliculas:
             fila = self.__ui.table_peliculas.rowCount()
