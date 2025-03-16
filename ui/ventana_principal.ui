@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>322</width>
-    <height>240</height>
+    <width>333</width>
+    <height>342</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -92,7 +92,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>322</width>
+     <width>333</width>
      <height>22</height>
     </rect>
    </property>
@@ -105,11 +105,11 @@
    <sender>boton_abrir_ventana_actores</sender>
    <signal>clicked()</signal>
    <receiver>Ventana_principal</receiver>
-   <slot>_VentanaPrincipal__abrir_ventana_actores()</slot>
+   <slot>emitir_abrir_ventana_busqueda_actores()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>312</x>
-     <y>209</y>
+     <x>323</x>
+     <y>311</y>
     </hint>
     <hint type="destinationlabel">
      <x>249</x>
@@ -121,11 +121,11 @@
    <sender>boton_buscar_pelicula</sender>
    <signal>clicked()</signal>
    <receiver>Ventana_principal</receiver>
-   <slot>_VentanaPrincipal__buscar_peliculas()</slot>
+   <slot>emitir_buscar()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>253</x>
-     <y>68</y>
+     <x>323</x>
+     <y>76</y>
     </hint>
     <hint type="destinationlabel">
      <x>249</x>
@@ -135,7 +135,7 @@
   </connection>
  </connections>
  <slots>
-  <slot>_VentanaPrincipal__abrir_ventana_actores()</slot>
-  <slot>_VentanaPrincipal__buscar_peliculas()</slot>
+  <slot>emitir_abrir_ventana_busqueda_actores()</slot>
+  <slot>emitir_buscar()</slot>
  </slots>
 </ui>
