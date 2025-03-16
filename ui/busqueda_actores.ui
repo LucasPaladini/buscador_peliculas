@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>289</width>
+    <width>300</width>
     <height>351</height>
    </rect>
   </property>
@@ -99,10 +99,10 @@
    <sender>boton_buscar_actor</sender>
    <signal>clicked()</signal>
    <receiver>dialog_actor</receiver>
-   <slot>_VentanaActor__buscar_actor()</slot>
+   <slot>emitir_buscar_actor()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>266</x>
+     <x>257</x>
      <y>42</y>
     </hint>
     <hint type="destinationlabel">
@@ -115,10 +115,10 @@
    <sender>boton_buscar_pelicula_por_actores</sender>
    <signal>clicked()</signal>
    <receiver>dialog_actor</receiver>
-   <slot>_VentanaActor__buscar_pelicula_por_actores()</slot>
+   <slot>emitir_busqueda_por_actores()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>279</x>
+     <x>257</x>
      <y>226</y>
     </hint>
     <hint type="destinationlabel">
@@ -129,7 +129,7 @@
   </connection>
  </connections>
  <slots>
-  <slot>_VentanaActor__buscar_actor()</slot>
-  <slot>_VentanaActor__buscar_pelicula_por_actores()</slot>
+  <slot>emitir_buscar_actor()</slot>
+  <slot>emitir_busqueda_por_actores()</slot>
  </slots>
 </ui>
