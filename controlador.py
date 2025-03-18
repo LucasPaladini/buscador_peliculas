@@ -19,7 +19,7 @@ class Controlador:
         self.__modelo_actor = Actor()
         self.__ventana_actores = VentanaActor()
         self.__ventana_actores.buscar_actor.connect(self.__buscar_actor)
-        self.__ventana_actores.busqueda_por_actores.connect(self.__busqueda_por_actores)
+        self.__ventana_actores.busqueda_por_actores.connect(self.__buscar_por_actores)
         self.__ventana_actores.abrir_pelicula.connect(self.__mostrar_pelicula)
 
 
@@ -51,7 +51,7 @@ class Controlador:
         else:
             self.__ventana_actores.cargar_actores(actor)
 
-    def __busqueda_por_actores(self, actor_n1, actor_n2):
+    def __buscar_por_actores(self, actor_n1, actor_n2):
         if actor_n1 and actor_n2:
             if actor_n1 != actor_n2:
                 peliculas_encontradas = self.__modelo_actor.buscar_actores_en_pelicula(actor_n1, actor_n2)
