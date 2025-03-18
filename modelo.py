@@ -60,7 +60,12 @@ class Actor:
         peliculas_encontradas = []
 
         for pelicula in peliculas:
-            actores = [actor.lower() for actor in pelicula.get('actores', [])]
-            if actor_n1.lower() in actores and actor_n2.lower() in actores:
+            actores_minuscula = []
+
+            for actor in pelicula["actores"]:
+                actores_minuscula.append(actor.lower())
+
+            if actor_n1 in actores_minuscula and actor_n2 in actores_minuscula:
                 peliculas_encontradas.append(pelicula)
+
         return peliculas_encontradas
