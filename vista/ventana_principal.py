@@ -8,15 +8,14 @@ class VentanaPrincipal(QMainWindow):
     abrir_pelicula = Signal(str)
     abrir_ventana_busqueda_actores = Signal()
 
-    def __init__(self):  # Paso parámetro de peliculas
+    def __init__(self):
         super().__init__()  # Se utiliza para poder extender funcionalidades de la clase padre
-        self.__ui = Ui_Ventana_principal()  # Crea una instancia de la main
+        self.__ui = Ui_Ventana_principal()
         self.__ui.setupUi(self)  # Configura los botones e interfaz
         self.setWindowTitle("Ventana principal")
-        self.__peliculas = []
 
         self.__ui.table_peliculas.setRowCount(0)
-        self.__ui.table_peliculas.setColumnCount(1)  # Cantidad de columnas
+        self.__ui.table_peliculas.setColumnCount(1)
         self.__ui.table_peliculas.setHorizontalHeaderLabels(["Películas"])
         self.__ui.table_peliculas.verticalHeader().setVisible(False)
         self.__ui.table_peliculas.horizontalHeader().setStretchLastSection(True)
