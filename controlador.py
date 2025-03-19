@@ -1,4 +1,4 @@
-from modelos.modelo import Catalogo
+from modelos.catalogo import Catalogo
 from vista.ventana_principal import VentanaPrincipal
 from vista.ventana_pelicula import VentanaPelicula
 from vista.ventana_actores import VentanaActor
