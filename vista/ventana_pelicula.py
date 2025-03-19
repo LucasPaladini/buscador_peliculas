@@ -1,7 +1,6 @@
 from PySide6.QtWidgets import QDialog
 from PySide6.QtGui import QPixmap
 from ui.datos_pelicula import Ui_Dialog
-from modelo import Pelicula
 
 
 class VentanaPelicula(QDialog):
@@ -12,13 +11,13 @@ class VentanaPelicula(QDialog):
         self.setWindowTitle("Detalles de la Película")
 
     def mostrar_datos(self, pelicula):
-        self.__ui.label_titulo_ingresado.setText(pelicula["titulo"])
-        self.__ui.label_sinopsis.setText(pelicula["sinopsis"])
-        self.__ui.label_puntuacion.setText(str(pelicula["puntuacion"]))
-        self.__ui.label_actores.setText(", ".join(pelicula["actores"]))
-        self.__modelo_pelicula = Pelicula()
-        self.__cargar_ruta = self.__modelo_pelicula.cargar_ruta(pelicula["poster"])
-        self.__cargar_poster(self.__cargar_ruta)
+        self.__ui.label_titulo_ingresado.setText(pelicula.obtener_atributos()["Titulo"])
+        self.__ui.label_sinopsis.setText(pelicula.obtener_atributos()["Sinopsis"])
+        self.__ui.label_puntuacion.setText(str(pelicula.obtener_atributos()["Puntuacion"]))
+        self.__ui.label_actores.setText(", ".join(pelicula.obtener_atributos()['Actores']))
+
+        ruta = pelicula.cargar_ruta()
+        self.__cargar_poster(ruta)
 
     def __cargar_poster(self, ruta):
         pixmap = QPixmap(ruta)
