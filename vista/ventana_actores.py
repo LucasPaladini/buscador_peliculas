@@ -14,8 +14,6 @@ class VentanaActor(QDialog):
         self.__ui.setupUi(self)
         self.setWindowTitle("Ventana Actores")
 
-        # self.resize(500, 600)
-
         self.__ui.table_peliculas_actores.setRowCount(0)
         self.__ui.table_peliculas_actores.setColumnCount(1)
         self.__ui.table_peliculas_actores.setHorizontalHeaderLabels([""])
@@ -64,7 +62,7 @@ class VentanaActor(QDialog):
         for pelicula in peliculas:
             fila = self.__ui.table_peliculas_actores.rowCount()
             self.__ui.table_peliculas_actores.insertRow(fila)
-            self.__ui.table_peliculas_actores.setItem(fila, 0, QTableWidgetItem(pelicula["titulo"]))
+            self.__ui.table_peliculas_actores.setItem(fila, 0, QTableWidgetItem(pelicula.obtener_atributos()["Titulo"]))
 
         self.__ui.table_peliculas_actores.itemDoubleClicked.connect(self.emitir_abrir_pelicula)
 
