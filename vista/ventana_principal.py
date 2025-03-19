@@ -9,7 +9,7 @@ class VentanaPrincipal(QMainWindow):
     abrir_ventana_busqueda_actores = Signal()
 
     def __init__(self):
-        super().__init__()  # Se utiliza para poder extender funcionalidades de la clase padre
+        super().__init__()  # Extiende funcionalidades de la clase padre
         self.__ui = Ui_Ventana_principal()
         self.__ui.setupUi(self)  # Configura los botones e interfaz
         self.setWindowTitle("Ventana principal")
@@ -43,7 +43,7 @@ class VentanaPrincipal(QMainWindow):
         for pelicula in peliculas:
             fila = self.__ui.table_peliculas.rowCount()
             self.__ui.table_peliculas.insertRow(fila)
-            self.__ui.table_peliculas.setItem(fila, 0, QTableWidgetItem(pelicula["titulo"]))
+            self.__ui.table_peliculas.setItem(fila, 0, QTableWidgetItem(pelicula.obtener_atributos()['Titulo']))
             self.__peliculas.append(pelicula)
 
     def mostrar_error(self, error):
