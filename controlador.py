@@ -5,6 +5,7 @@ from vista.ventana_actores import VentanaActor
 
 class Controlador:
     def __init__(self):
+        # Instancia de catálogo
         self.__catalogo = Catalogo()
 
         # Instancias Ventana Principal
