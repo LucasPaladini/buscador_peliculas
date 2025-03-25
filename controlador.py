@@ -3,15 +3,20 @@ from vista.ventana_principal import VentanaPrincipal
 from vista.ventana_pelicula import VentanaPelicula
 from vista.ventana_actores import VentanaActor
 
+from modelos.actor import Actor
+from modelos.pelicula import Pelicula
+
+
 class Controlador:
     def __init__(self):
         # Instancia de catálogo
         self.__catalogo = Catalogo()
+        self.__cargar_datos()
 
         # Instancias Ventana Principal
-        peliculas = self.__catalogo.obtener_peliculas()
+        self.__peliculas = self.__catalogo.obtener_peliculas()
         self.__ventana_principal = VentanaPrincipal()
-        self.__ventana_principal.cargar_peliculas(peliculas)
+        self.__ventana_principal.cargar_peliculas(self.__peliculas)
         self.__ventana_principal.buscar.connect(self.__buscar_peliculas)
         self.__ventana_principal.abrir_pelicula.connect(self.__mostrar_pelicula)
         self.__ventana_principal.abrir_ventana_busqueda_actores.connect(self.__abrir_ventana_busqueda_actores)
@@ -24,6 +29,24 @@ class Controlador:
         self.__ventana_actores.buscar_actor.connect(self.__buscar_actor)
         self.__ventana_actores.busqueda_por_actores.connect(self.__buscar_por_actores)
         self.__ventana_actores.abrir_pelicula.connect(self.__mostrar_pelicula)
+
+    def __cargar_datos(self):
+        contenido = self.__catalogo.obtener_contenido_del_archivo()
+        for pelicula in contenido:
+            actores = []
+            for nombre in pelicula["actores"]:
+                actores.append(Actor(nombre))
+
+            nueva_pelicula = Pelicula(
+                pelicula["titulo"],
+                pelicula["sinopsis"],
+                pelicula["puntuacion"],
+                actores,
+                pelicula["poster"]
+            )
+            self.__catalogo.agregar_pelicula(nueva_pelicula)
+
+        self.__actores = self.__catalogo.obtener_actores_unicos()
 
     def __buscar_peliculas(self, titulo):
         peliculas = self.__catalogo.buscar_peliculas_por_titulo(titulo)
