@@ -1,36 +1,22 @@
 import json
 import os
-from modelos.pelicula import Pelicula
 
 
 class Catalogo:
     def __init__(self):
         self.__peliculas = []
-        self.__cargar_datos()
+        self.__actores = []
 
-    def __obtener_contenido_del_archivo(self):
+    def agregar_pelicula(self, pelicula):
+        self.__peliculas.append(pelicula)
+
+    def obtener_contenido_del_archivo(self):
         ruta_archivo = os.path.join("recursos", "peliculas.json")
         try:
             with open(ruta_archivo, 'r', encoding='utf-8') as archivo:
                 return json.load(archivo)
         except Exception as error:
             print(f"Ocurrió un error: {error}")
-
-    def __cargar_datos(self):
-        contenido = self.__obtener_contenido_del_archivo()
-        self.__peliculas = []
-
-        for pelicula in contenido:
-            nueva_pelicula = Pelicula(
-                pelicula["titulo"],
-                pelicula["sinopsis"],
-                pelicula["puntuacion"],
-                pelicula["actores"],
-                pelicula["poster"]
-            )
-            self.__peliculas.append(nueva_pelicula)
-
-        self.__actores = self.obtener_actores_unicos()
 
     def obtener_actores_unicos(self):
         actores = []
@@ -44,9 +30,10 @@ class Catalogo:
 
     def obtener_actor_por_nombre(self, nombre_actor):
         actores_encontrados = []
-        for actor in self.__actores:
-            if nombre_actor.lower() in actor.lower():
-                actores_encontrados.append(actor)
+        for pelicula in self.__peliculas:
+            for actor in pelicula.obtener_atributos()['Actores']:
+                if nombre_actor.lower() in actor.lower():
+                    actores_encontrados.append(actor)
         return actores_encontrados
 
     def buscar_peliculas_por_titulo(self, titulo):
