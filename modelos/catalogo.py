@@ -10,6 +10,9 @@ class Catalogo:
     def agregar_pelicula(self, pelicula):
         self.__peliculas.append(pelicula)
 
+    def obtener_peliculas(self):
+        return self.__peliculas
+
     def obtener_contenido_del_archivo(self):
         ruta_archivo = os.path.join("recursos", "peliculas.json")
         try:
@@ -25,10 +28,7 @@ class Catalogo:
                 actores.append(actor)
         return sorted(set(actores))
 
-    def obtener_peliculas(self):
-        return self.__peliculas
-
-    def obtener_actor_por_nombre(self, nombre_actor):
+    def buscar_actor_por_nombre(self, nombre_actor):
         actores_encontrados = []
         for pelicula in self.__peliculas:
             for actor in pelicula.obtener_atributos()['Actores']:
