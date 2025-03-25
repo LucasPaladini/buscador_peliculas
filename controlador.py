@@ -2,7 +2,6 @@ from modelos.catalogo import Catalogo
 from vista.ventana_principal import VentanaPrincipal
 from vista.ventana_pelicula import VentanaPelicula
 from vista.ventana_actores import VentanaActor
-
 from modelos.actor import Actor
 from modelos.pelicula import Pelicula
 
@@ -13,7 +12,7 @@ class Controlador:
         self.__catalogo = Catalogo()
         self.__cargar_datos()
 
-        # Instancias Ventana Principal
+        # Instancia Ventana Principal
         self.__peliculas = self.__catalogo.obtener_peliculas()
         self.__ventana_principal = VentanaPrincipal()
         self.__ventana_principal.cargar_peliculas(self.__peliculas)
@@ -21,10 +20,10 @@ class Controlador:
         self.__ventana_principal.abrir_pelicula.connect(self.__mostrar_pelicula)
         self.__ventana_principal.abrir_ventana_busqueda_actores.connect(self.__abrir_ventana_busqueda_actores)
 
-        # Instancias Ventana Película
+        # Instancia Ventana Película
         self.__ventana_pelicula = VentanaPelicula()
 
-        # Instancias Ventana Actores
+        # Instancia Ventana Actores
         self.__ventana_actores = VentanaActor()
         self.__ventana_actores.buscar_actor.connect(self.__buscar_actor)
         self.__ventana_actores.busqueda_por_actores.connect(self.__buscar_por_actores)
@@ -45,8 +44,6 @@ class Controlador:
                 pelicula["poster"]
             )
             self.__catalogo.agregar_pelicula(nueva_pelicula)
-
-        self.__actores = self.__catalogo.obtener_actores_unicos()
 
     def __buscar_peliculas(self, titulo):
         peliculas = self.__catalogo.buscar_peliculas_por_titulo(titulo)
@@ -72,7 +69,7 @@ class Controlador:
         self.__ventana_actores.exec()
 
     def __buscar_actor(self, nombre):
-        actores = self.__catalogo.obtener_actor_por_nombre(nombre)
+        actores = self.__catalogo.buscar_actor_por_nombre(nombre)
         if len(actores) == 0:
             self.__ventana_actores.mostrar_error("No se encontró el actor")
         else:
