@@ -1,5 +1,4 @@
 import os
-from modelos.actor import Actor
 
 class Pelicula:
     def __init__(self, titulo, sinopsis, puntuacion, actores, poster):
@@ -7,9 +6,7 @@ class Pelicula:
         self.__sinopsis = sinopsis
         self.__puntuacion = puntuacion
         self.__poster = poster
-        self.__actores = self.__actores = []
-        for actor in actores:
-            self.__actores.append(Actor(actor))
+        self.__actores = actores
 
     def obtener_atributos(self):
         actores_nombres = []
